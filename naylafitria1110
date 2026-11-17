@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | IT Technician</title>
+  <meta name="description" content="Portfolio Teknik Komputer dan Jaringan - IT Support, Networking, dan Computer Technician.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #080f1e;
+      --card: #111d31;
+      --blue: #38bdf8;
+      --white: #f8fafc;
+      --gray: #94a3b8;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 88%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(8,15,30,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .nav-content {
+      height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 110px 0 60px;
+      background:
+        radial-gradient(circle at 80% 30%, #12365a 0%, transparent 35%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #38bdf8;
+      color: var(--blue);
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      color: var(--gray);
+      max-width: 570px;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #07111f;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--blue);
+      color: var(--blue);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .profile {
+      width: 260px;
+      height: 260px;
+      margin: auto;
+      border-radius: 50%;
+      border: 5px solid var(--blue);
+      background: linear-gradient(145deg, #1e3a5f, #0f172a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 50px #38bdf833;
+    }
+
+    .profile i {
+      font-size: 100px;
+      color: var(--blue);
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+    }
+
+    .section-title span {
+      color: var(--blue);
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* ABOUT */
+    .about-content {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #26364d;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .about-content strong {
+      color: var(--blue);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid #26364d;
+      border-radius: 12px;
+      padding: 25px;
+      transition: .3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--blue);
+    }
+
+    .skill-card i {
+      font-size: 30px;
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+
+    .skill-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* PROJECT */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid #26364d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      height: 170px;
+      background: linear-gradient(135deg, #12365a, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image i {
+      font-size: 55px;
+      color: var(--blue);
+    }
+
+    .project-info {
+      padding: 22px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .project-info p {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    /* EDUCATION */
+    .education {
+      background: var(--card);
+      border-left: 3px solid var(--blue);
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .education h3 {
+      color: var(--blue);
+    }
+
+    .education p {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      background: var(--card);
+      padding: 40px 20px;
+      border: 1px solid #26364d;
+      border-radius: 15px;
+    }
+
+    .contact-box p {
+      color: var(--gray);
+      font-size: 13px;
+      margin: 12px 0 25px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .socials a {
+      font-size: 22px;
+      color: var(--blue);
+      transition: .3s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #26364d;
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 10px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .profile {
+        width: 190px;
+        height: 190px;
+      }
+
+      .profile i {
+        font-size: 75px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 430px) {
+      .nav-content {
+        height: 65px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        gap: 8px;
+        font-size: 9px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">MY<span>PORTFOLIO.</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <div>
+        <span class="tag">WELCOME TO MY PORTFOLIO</span>
+
+        <h1>HELLO, I'M<br>
+          <span>YOUR NAME</span>
+        </h1>
+
+        <h3>IT Support & Network Technician</h3>
+
+        <p>
+          Saya adalah individu dari jurusan Teknik Komputer dan Jaringan
+          yang memiliki minat dalam bidang teknologi informasi,
+          jaringan komputer, hardware, dan software.
+        </p>
+
+        <div class="buttons">
+          <a href="#contact" class="btn btn-primary">
+            Hubungi Saya
+          </a>
+
+          <a href="#about" class="btn btn-outline">
+            Tentang Saya
+          </a>
+        </div>
+      </div>
+
+      <div class="profile">
+        <i class="fas fa-user"></i>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>ABOUT <span>ME</span></h2>
+        <p>Mengenal lebih dekat tentang diri saya</p>
+      </div>
+
+      <div class="about-content">
+        <p>
+          Perkenalkan, nama saya <strong>YOUR NAME</strong>.
+          Saya merupakan lulusan SMK jurusan Teknik Komputer
+          dan Jaringan (TKJ).
+        </p>
+        <br>
+        <p>
+          Saya memiliki pengetahuan dasar mengenai instalasi
+          sistem operasi, perakitan komputer, konfigurasi jaringan,
+          troubleshooting hardware dan software, serta administrasi
+          perangkat jaringan.
+        </p>
+        <br>
+        <p>
+          Saya memiliki semangat belajar yang tinggi, disiplin,
+          bertanggung jawab, dan mampu bekerja secara individu
+          maupun dalam tim.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MY <span>SKILLS</span></h2>
+        <p>Keahlian dalam bidang Teknik Komputer dan Jaringan</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <i class="fas fa-desktop"></i>
+          <h3>Computer Hardware</h3>
+          <p>Perakitan, pembongkaran, dan penggantian komponen komputer.</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-network-wired"></i>
+          <h3>Networking</h3>
+          <p>Konfigurasi jaringan LAN, IP Address, dan topologi jaringan.</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-server"></i>
+          <h3>Operating System</h3>
+          <p>Instalasi Windows, Linux dasar, dan konfigurasi sistem operasi.</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-router"></i>
+          <h3>Router Configuration</h3>
+          <p>Konfigurasi dasar router dan perangkat jaringan.</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-screwdriver-wrench"></i>
+          <h3>Troubleshooting</h3>
+          <p>Menganalisis dan mengatasi permasalahan hardware dan software.</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-ethernet"></i>
+          <h3>Cabling</h3>
+          <p>Pembuatan kabel UTP, pemasangan RJ45, dan pengujian kabel LAN.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="project">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MY <span>PROJECTS</span></h2>
+        <p>Dokumentasi proyek dan praktik yang pernah dilakukan</p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-computer"></i>
+          </div>
+          <div class="project-info">
+            <h3>Computer Assembly</h3>
+            <p>Praktik merakit komputer dan memasang komponen hardware.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <div class="project-info">
+            <h3>LAN Network Installation</h3>
+            <p>Pembuatan kabel LAN dan konfigurasi jaringan lokal.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fab fa-windows"></i>
+          </div>
+          <div class="project-info">
+            <h3>Operating System Installation</h3>
+            <p>Instalasi ulang sistem operasi Windows dan driver komputer.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-router"></i>
+          </div>
+          <div class="project-info">
+            <h3>Network Configuration</h3>
+            <p>Praktik konfigurasi IP Address dan perangkat jaringan.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MY <span>EDUCATION</span></h2>
+        <p>Riwayat pendidikan</p>
+      </div>
+
+      <div class="education">
+        <h3>SMK YOUR SCHOOL</h3>
+        <p>Teknik Komputer dan Jaringan (TKJ)</p>
+        <p>2023 - 2026</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>CONTACT <span>ME</span></h2>
+        <p>Mari terhubung dengan saya</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Let's Work Together!</h2>
+        <p>
+          Saya terbuka untuk kesempatan kerja dan pengalaman
+          baru di bidang teknologi informasi.
+        </p>
+
+        <a href="https://wa.me/6281234567890"
+           class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i>
+          Hubungi WhatsApp
+        </a>
+
+        <div class="socials">
+          <a href="https://github.com/USERNAME">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="mailto:emailkamu@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+
+          <a href="https://linkedin.com/in/USERNAME">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 YOUR NAME. All Rights Reserved.</p>
+    <p>Designed with passion by YOUR NAME.</p>
+  </footer>
+
+</body>
+</html>
